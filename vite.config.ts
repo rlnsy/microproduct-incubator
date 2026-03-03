@@ -13,15 +13,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        // Manual chunk splitting for better caching
         manualChunks: {
-          // Vendor chunk for React ecosystem
-          "vendor-react": ["react", "react-dom", "react-router-dom"],
-          // Separate chunk for data table library
-          "vendor-table": ["@tanstack/react-table"],
-          // Utilities chunk
-          "vendor-utils": ["date-fns"],
-          // Maps chunk
           "vendor-maps": ["leaflet", "react-leaflet"],
         },
         // Consistent file naming for caching

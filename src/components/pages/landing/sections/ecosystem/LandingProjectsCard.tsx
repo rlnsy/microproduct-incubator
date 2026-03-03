@@ -111,8 +111,9 @@ const ProjectsCard = memo(() => {
   };
 
   const currentCapstone = capstones[currentIndex];
-  const transitionClasses = `transition-opacity duration-300 ${isTransitioning ? "opacity-0" : "opacity-100"
-    }`;
+  const transitionClasses = `transition-opacity duration-300 ${
+    isTransitioning ? "opacity-0" : "opacity-100"
+  }`;
 
   // Play video automatically when capstone changes
   useEffect(() => {
@@ -223,10 +224,11 @@ const ProjectsCard = memo(() => {
                     setIsTransitioning(false);
                   }, 300);
                 }}
-                className={`w-2.5 h-2.5 rounded-full border transition-all duration-300 ${index === currentIndex
-                  ? "bg-brand-blue border-brand-blue scale-110"
-                  : "bg-transparent border-white/30 hover:border-white/50"
-                  }`}
+                className={`w-2.5 h-2.5 rounded-full border transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-brand-blue border-brand-blue scale-110"
+                    : "bg-transparent border-white/30 hover:border-white/50"
+                }`}
                 aria-label={`Go to project ${index + 1}`}
               />
             ))}

@@ -1,16 +1,3 @@
-/**
- * Navigation items used in Header and Footer.
- * Centralized for consistency and easier maintenance.
- */
-
-interface NavItem {
-  label: string;
-  icon: string;
-  href: string;
-}
-
-export const NAV_ITEMS: NavItem[] = [];
-
 interface SocialLink {
   name: string;
   href: string;
@@ -44,11 +31,3 @@ export const SOCIAL_LINKS: SocialLink[] = [
     fullName: "Email",
   },
 ];
-
-interface FooterLink {
-  label: string;
-  href: string;
-}
-
-export const FOOTER_QUICK_LINKS: FooterLink[] = [];
-

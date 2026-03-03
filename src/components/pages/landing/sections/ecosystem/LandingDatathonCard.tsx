@@ -102,8 +102,9 @@ const DatathonCard = memo(() => {
   };
 
   const currentWinner = winners[currentIndex];
-  const transitionClasses = `transition-opacity duration-200 ease-out ${isTransitioning ? "opacity-0" : "opacity-100"
-    }`;
+  const transitionClasses = `transition-opacity duration-200 ease-out ${
+    isTransitioning ? "opacity-0" : "opacity-100"
+  }`;
 
   const leftColumn = (
     <div className="flex flex-col gap-6 items-center w-full">
@@ -115,10 +116,11 @@ const DatathonCard = memo(() => {
               key={winner.name}
               type="button"
               onClick={() => handleDotClick(index)}
-              className={`w-2.5 h-2.5 rounded-full border transition-all duration-300 ${index === currentIndex
-                ? "bg-brand-blue border-brand-blue scale-110"
-                : "bg-transparent border-white/30 hover:border-white/50"
-                }`}
+              className={`w-2.5 h-2.5 rounded-full border transition-all duration-300 ${
+                index === currentIndex
+                  ? "bg-brand-blue border-brand-blue scale-110"
+                  : "bg-transparent border-white/30 hover:border-white/50"
+              }`}
               aria-label={`Go to winner ${index + 1}`}
             />
           ))}
