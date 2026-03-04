@@ -26,4 +26,4 @@ Idea | Prototype | Live
 
 - GitHub handle:
 
-Propose an improvement: https://github.com/TrilemmaFoundation/microproduct-incubator/pulls
+Propose an improvement: [open a pull request](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)

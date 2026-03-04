@@ -17,7 +17,7 @@ Thank you for helping grow the Microproduct Incubator knowledge hub.
 npm run check
 ```
 
-5. Open a pull request and complete the checklist.
+1. Open a pull request and complete the checklist.
 
 ## Content Standards
 
@@ -25,7 +25,7 @@ npm run check
 - Use clear headings and concrete examples.
 - Link to primary references where possible.
 - Add one line at the end of each page:
-  - `Propose an improvement: https://github.com/TrilemmaFoundation/microproduct-incubator/pulls`
+  - `Propose an improvement: [open a pull request](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)`
 
 ## Review Policy
 

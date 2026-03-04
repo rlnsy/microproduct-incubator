@@ -17,4 +17,4 @@ The Microproduct Incubator exists to help technical builders create useful tools
 
 Anyone can contribute through pull requests. Committee members review and curate quality for publication.
 
-Propose an improvement: https://github.com/TrilemmaFoundation/microproduct-incubator/pulls
+Propose an improvement: [open a pull request](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)

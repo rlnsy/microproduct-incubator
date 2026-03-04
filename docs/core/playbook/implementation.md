@@ -17,4 +17,4 @@ last_reviewed: 2026-03-04
 - Basic reliability and error handling in place.
 - One feedback loop collected from real users.
 
-Propose an improvement: https://github.com/TrilemmaFoundation/microproduct-incubator/pulls
+Propose an improvement: [open a pull request](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)

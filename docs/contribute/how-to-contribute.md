@@ -20,4 +20,4 @@ last_reviewed: 2026-03-04
 - Actionable information
 - Correct metadata
 
-Propose an improvement: https://github.com/TrilemmaFoundation/microproduct-incubator/pulls
+Propose an improvement: [open a pull request](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)

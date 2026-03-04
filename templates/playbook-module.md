@@ -23,4 +23,4 @@ Common mistakes and how to avoid them.
 
 - Add primary references.
 
-Propose an improvement: https://github.com/TrilemmaFoundation/microproduct-incubator/pulls
+Propose an improvement: [open a pull request](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)

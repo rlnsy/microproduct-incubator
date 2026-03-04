@@ -17,4 +17,4 @@ A microproduct is a focused app that turns data into usable tools and real utili
 
 LLMs and agentic workflows reduce build friction. The opportunity is to empower technical talent to create practical, high-impact tools faster.
 
-Propose an improvement: https://github.com/TrilemmaFoundation/microproduct-incubator/pulls
+Propose an improvement: [open a pull request](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
