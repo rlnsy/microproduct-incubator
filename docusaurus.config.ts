@@ -76,12 +76,11 @@ const config: Config = {
         alt: 'Trilemma Foundation',
         src: 'img/trilemma_foundation.png',
         srcDark: 'img/trilemma_foundation_white.png',
-        href: 'https://trilemma.foundation',
-        height: 40,
+        href: '/',
+        height: 26,
       },
       links: [
         {
-          title: 'Community',
           items: [
             {
               label: 'GitHub',
