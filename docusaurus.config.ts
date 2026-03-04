@@ -31,16 +31,9 @@ const config: Config = {
       'classic',
       {
         docs: {
+          path: 'docs/core',
           sidebarPath: './sidebars.ts',
           editUrl: `${REPO_URL}/edit/main/`,
-          exclude: [
-            '**/_*.{js,jsx,ts,tsx,md,mdx}',
-            '**/_*/**',
-            '**/*.test.{js,jsx,ts,tsx}',
-            '**/__tests__/**',
-            'showcase/**',
-            'contribute/**',
-          ],
         },
         blog: false,
         pages: {},
