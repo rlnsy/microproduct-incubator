@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  validate-and-build:
+  validate-build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,13 +19,10 @@ jobs:
           cache: 'npm'
 
       - name: Install
-        run: npm install
+        run: npm ci
 
-      - name: Frontmatter validation
-        run: npm run validate:frontmatter
+      - name: Validate and build
+        run: npm run check
 
-      - name: Markdown lint
-        run: npm run lint:markdown
-
-      - name: Build (includes broken link checks)
-        run: npm run build
+      - name: Tests with coverage
+        run: npm run test:coverage
