@@ -13,6 +13,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'playbook/ideation',
         'playbook/architecture',
+        'playbook/data-stack-analytics-engineering',
         'playbook/implementation',
         'playbook/qa-methodology',
       ],
