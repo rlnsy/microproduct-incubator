@@ -34,6 +34,7 @@ This runs:
 - site build and link checks
 
 ## Spelling Check
+
 We use `cspell` to automatically check for spelling mistakes in the docs, which
 helps prevent noisy review comments. This tool is integrated into IDEs, which
 highlight spelling errors similarly to other linting or quality issues. If
