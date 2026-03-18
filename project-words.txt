@@ -1,5 +1,8 @@
+agentic
+Behaviour
+Behaviours
+Dagster
+frontmatter
 microproduct
 microproducts
-frontmatter
-agentic
-Dagster
+SDLC
