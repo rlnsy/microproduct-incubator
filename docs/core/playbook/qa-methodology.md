@@ -30,60 +30,29 @@ Behaviour-Driven Development (BDD) while adapting them to meet the needs of
 microproduct development in our modern, AI-assisted era.
 Our quality assurance methodology has the following characteristics:
 
-1. [Focused Specification](#focused-specification)
+1. [Practical Software Design](#practical-software-design)
 2. [Automation](#automation)
 3. [Thoughtful Quality Gates & Feedback Mechanisms](#thoughtful-quality-gates--feedback-mechanisms)
 
 Which are explored further below.
 
-### Focused Specification
-*Business rules and product behaviours are organized into independent modules for evolution, testing and feedback.*
+### Practical Software Design
+*Low-coupling, deep vertical slices, and intentional project organization promote effective testing and visibility*
 
-Tests validate that software meets requirements, most commonly using examples
-that demonstrate a particular behaviour or rule. Statements that describe the
-structure, behaviour, rules and non-functional properties of a system form the
-specification. Tests help demonstrate that those statements are true of the
-current implementation or release candidate. In this way, testing, quality
-assurance and specifications are intertwined.
+While it may seem like a separate domain, applying software design principles is
+critical to making a project testable and allowing it to grow in a way that
+avoids regressions and that all stakeholders understand.
 
-We do *not* expect microproduct developers to write a complete
-specification prior to coding. Rather, a structure and a set of rules and examples
-should emerge as iteration proceeds. End-to-end testing of high-value flows is
-critical in the early days of development.
+Independent components (we like vertical slices, but this is not required) with
+clear and minimal dependencies allow humans to reason easily about where certain
+business rules or behaviours reside in the system, and makes it easier for agents
+to build or extend capabilities without affecting the others.
 
-However, in order to grow the product and have confidence in the results, we must also be
-able to reason about and independently test small, separate components of the system.
-Furthermore, those components must demonstrate and provide a single source of
-truth for each requirement, ideally focused around a single business domain. We
-encourage developers to constantly think about breaking up their work and
-architecture in this way, using AI-assisted refactoring to promote decoupling,
-effective testing and easy-to-measure progress. 
-
-As an example, suppose that we have a betting product where a user picks a number
-of different bets and checks out using their crypto wallet. Of course, we need
-at least one test of the overall flow with the actual UI - from selecting bets
-to checking out - but such tests are typically flaky and difficult to maintain.
-They also grow in complexity as the product grows. Consider needing to change
-the calculation of booking fees applied to each bet. It would be inappropriate
-to run a full-flow test for each set of different fees and bets used in the
-examples. To manage this, we introduce a component like 'BetTotalCalculation'.
-This might be a class in the code, a vertical slice, or even an entire
-microservice. In any case, it owns the logic needed to do bet calculations and
-specifications/tests of this component are focused on that bit of the domain.
-
-Additional refactoring might introduce components such as:
-- Authentication/Login
-- Bet cart
-- Checkout
-- Payment
-- Frontend UI components (may have some duplication of business logic)
-
-A focused specification means that when a new requirement is introduced - or an
-existing one changes - there is a single place we need to change and re-test.
-For the purposes of QA, we always break higher-level requirements into detailed
-specifications that fit cleanly into pieces of the system. Once that piece is
-implemented and tested, we know we have made progress the scope of changes is
-apparent during code reviews.
+Furthermore, building small bits of functionality from end-to-end ensures that
+we make incremental progress and can test and provide feedback each step of the way.
+This does not strictly require UI->DB slices - a helper class with a clear purpose
+and suite of tests that express business requirement is equally powerful. That
+class is treated as a first-class component of the system.
 
 ### Automation
 TODO
