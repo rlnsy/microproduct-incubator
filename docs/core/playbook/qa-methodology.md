@@ -54,6 +54,10 @@ This does not strictly require UI->DB slices - a helper class with a clear purpo
 and suite of tests that express business requirement is equally powerful. That
 class is treated as a first-class component of the system.
 
+Well-designed systems embrace business/domain concepts and terminology, using
+these to describe what software does in specifications, tests and documentation.
+Dependencies between modules should be apparent to domain experts.
+
 ### Automation
 *Automated tests, CI/CD pipelines, and other AI-assisted workflows facilitate rapid development with a growing codebase and feature set*
 
