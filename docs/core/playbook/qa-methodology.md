@@ -55,10 +55,10 @@ and suite of tests that express business requirement is equally powerful. That
 class is treated as a first-class component of the system.
 
 ### Automation
-TODO
+*Automated tests, CI/CD pipelines, and other AI-assisted workflows facilitate rapid development with a growing codebase and feature set*
 
 ### Thoughtful Quality Gates & Feedback Mechanisms
-TODO
+*Deterministic checks at specific points in the change lifecycle give information to agents and human reviewers, balancing correctness with development friction*
 
 
 ## Agent-Assisted Testing Guidance
