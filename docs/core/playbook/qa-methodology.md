@@ -51,10 +51,10 @@ to build or extend capabilities without affecting the others.
 Furthermore, building small bits of functionality from end-to-end ensures that
 we make incremental progress and can test and provide feedback each step of the way.
 This does not strictly require UI->DB slices - a helper class with a clear purpose
-and suite of tests that express business requirement is equally powerful. That
-class is treated as a first-class component of the system.
+and suite of tests that express business requirements is equally powerful. Such
+classes is treated as a first-class component of the system.
 
-Well-designed systems embrace business/domain concepts and terminology, using
+Well-designed systems embrace business domain concepts and terminology, using
 these to describe what software does in specifications, tests and documentation.
 Dependencies between modules should be apparent to domain experts.
 
