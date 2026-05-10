@@ -1,163 +1,74 @@
-# Trilemma Foundation Cursor Rules
+# Build Trilemma (microproduct-lab) — Cursor Rules
 
-## Tech Stack 
-- **Frontend**: React 19.0.0, TypeScript 5.5.3, Vite 7.0.0, React Router v7.8.2
-- **Styling**: Tailwind CSS 3.4.13 with custom UI kit preset
-- **Linting & Formatting**: Biome 2.3.10 (replaces ESLint + Prettier)
-- **Hosting**: Vercel (static site)
-- **Data**: Google Sheets CSV export, Google Docs embeds
+## Tech stack
 
-## Project Structure
+- **Site framework**: Docusaurus 3 (`@docusaurus/core`, `@docusaurus/preset-classic`)
+- **UI**: React 19, TypeScript (extends `@docusaurus/tsconfig`)
+- **Styling**: Docusaurus classic theme + project CSS in [`src/css/custom.css`](src/css/custom.css) (no Tailwind in this repo)
+- **Quality**: `cspell`, `markdownlint-cli`, Node validation scripts (`scripts/*.mjs`), Jest + Testing Library + ts-jest
+- **Hosting**: Static deploy (e.g. Vercel); see [`vercel.json`](vercel.json)
+
+## Repository layout
 
 ```
+├── docs/                 # Documentation (MD/MDX); split across multiple @docusaurus/plugin-content-docs instances
 ├── src/
-│   ├── components/
-│   │   ├── layout/        # PageLayout, Header, Footer, TwoColumnSection
-│   │   ├── pages/
-│   │   │   ├── landing/   # Landing page (Hero, UniversityMarquee, ProofOfPerformance)
-│   │   │   ├── legal/     # Privacy, Terms pages
-│   │   │   ├── projects/  # Projects table with Google Sheets data
-│   │   │   ├── resources/ # Embedded Google Docs viewer
-│   │   │   ├── team/      # Team directors page
-│   │   │   └── tournaments/ # Tournament info and winners
-│   │   └── UI/            # Reusable components (Button, StatusBadge, Section, etc.)
-│   ├── hooks/             # Custom React hooks (useProjectsData, useBodyScrollLock)
-│   ├── constants/         # Navigation, external links, university data (community.json)
-│   ├── assets/            # Static images (logos, headshots)
-│   └── types/             # Frontend-specific type declarations
-├── public/                # Favicons and static assets
-└── tailwind-ui-kit.preset.ts  # Design system tokens
+│   ├── pages/           # React pages (e.g. audience chooser, registry, schemas, build)
+│   ├── components/      # Shared React (e.g. ControlSurface, UniversityMarquee)
+│   ├── theme/           # Swizzled theme pieces (e.g. Navbar)
+│   ├── css/             # Global styles
+│   ├── utils/, types/   # Helpers and TS types
+│   └── __mocks__/       # Jest mocks for @docusaurus/* and @theme/*
+├── static/              # Served as-is at site root (e.g. AGENTS.md, llms.txt, registry.json — see .gitignore for generated llms-full.txt)
+├── scripts/             # build helpers, validation, generate-llms-full.mjs
+├── product-templates/   # Copy-paste starter repos (each may include its own .github stub)
+├── templates/           # Doc templates (frontmatter validated)
+└── products/            # README only — explains product code usually lives in other repos
 ```
 
-## Routes
+Config entry points: [`docusaurus.config.ts`](docusaurus.config.ts), [`sidebars.ts`](sidebars.ts), [`siteUrl.ts`](siteUrl.ts).
 
-| Route | Component | Description |
-|-------|-----------|-------------|
-| `/` | Landing | Hero, university marquee, proof of performance |
-| `/projects` | Projects | Sortable/filterable table from Google Sheets |
-| `/tournaments` | Tournaments | Current/past tournaments with winners |
-| `/team` | Team | Directors with bios and LinkedIn |
-| `/resources` | Resources | Embedded Google Docs with fullscreen |
-| `/privacy` | Privacy | Privacy policy |
-| `/terms` | Terms | Terms and conditions |
+## Routes (high level)
 
-## Coding Conventions
+- **`/`** — Audience chooser (humans vs agents); implemented in [`src/pages/index.tsx`](src/pages/index.tsx)
+- **`/agents`** — Agent-facing docs island (`docs/agents`, `routeBasePath: agents`)
+- **Core docs** — Default docs plugin under `/docs/...` (e.g. intro, playbook)
+- **Other doc islands** — `/showcase`, `/contribute`, `/templates`, `/archetypes`, `/standards` (see `docsIslandPlugins` in `docusaurus.config.ts`)
+- **Custom pages** — e.g. [`src/pages/registry.tsx`](src/pages/registry.tsx), [`src/pages/schemas.tsx`](src/pages/schemas.tsx), [`src/pages/build.tsx`](src/pages/build.tsx)
 
-### Linting & Formatting (Biome)
-- Use Biome for both linting and formatting
-- Run `npm run lint` to check for issues
-- Run `npm run lint:fix` to auto-fix linting issues
-- Run `npm run format` to format all files
-- Run `npm run check` to run both lint and format checks
-- Configuration: `biome.json` with recommended rules
-- Use `import type` for type-only imports
-- Double quotes for strings (formatter enforces this)
-- 2-space indentation (formatter enforces this)
+Navbar/footer grouping for Humans vs Agents is configured in `themeConfig` in [`docusaurus.config.ts`](docusaurus.config.ts).
 
-### TypeScript
-- Use strict mode (`strict: true` in tsconfig)
-- Use `interface` for object shapes, `type` for unions/aliases
-- Prefer explicit return types on exported functions
+## npm scripts
 
-### React Components
-- Use functional components with `React.FC<Props>` typing
-- Define props interfaces inline above component
-- Export components as default
-- File naming: PascalCase matching component name
-- Use `memo()` for expensive components (see TournamentsWinners, TeamDirectors)
+- **`npm run dev`** / **`npm start`** — Local Docusaurus dev server (`predev` clears dev caches)
+- **`npm run build`** — Runs `scripts/generate-llms-full.mjs` then `docusaurus build`
+- **`npm run check`** — spellcheck, frontmatter + registry validation, markdown lint, production build (includes link checks)
+- **`npm test`** — Jest plus Node `node --test` for `scripts/__tests__/llmsMdxUtils.test.mjs`
+- **`npm run test:coverage`** — Jest with coverage thresholds (see [`jest.config.js`](jest.config.js)) plus Node tests above
+- **`npm run clean`** — `docusaurus clear` and remove `build/` + `coverage/`
 
-```tsx
-interface ComponentProps {
-  title: string;
-  onClick?: () => void;
-}
+## Conventions
 
-const Component: React.FC<ComponentProps> = ({ title, onClick }) => {
-  return <button onClick={onClick}>{title}</button>;
-};
+### TypeScript / React
 
-export default Component;
-```
+- Use `import type` for type-only imports.
+- Prefer explicit return types on exported functions where it helps readability.
+- Functional components are typical; follow patterns already used in `src/pages/` and `src/components/`.
+- For class names, this repo uses **`clsx`** in some components (runtime dependency).
 
-### Custom Hooks
-- Prefix with `use` (e.g., `useProjectsData`, `useBodyScrollLock`)
-- Return object with named properties: `{ data, loading, error }`
-- Handle loading/error states internally
+### Testing
 
-```tsx
-// Data fetching hook pattern
-export const useProjectsData = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  
-  // ... fetch logic
-  
-  return { projects, loading, error };
-};
+- Jest `moduleNameMapper`: `@site/*` → repo root, `@docusaurus/*` and `@theme/*` → `src/__mocks__/`.
+- Coverage collectors and **100% global thresholds** are defined in [`jest.config.js`](jest.config.js) (some paths are excluded there intentionally, e.g. swizzled theme, UniversityMarquee).
 
-// Utility hook pattern
-export const useBodyScrollLock = (isLocked: boolean): void => {
-  useEffect(() => {
-    if (isLocked) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [isLocked]);
-};
-```
+### Content & agent surfaces
 
-## Styling
+- **Machine-readable data**: [`static/registry.json`](static/registry.json) validated by `npm run validate:registry` (schema under `static/schemas/`).
+- **Agent-oriented static files**: `static/AGENTS.md`, `static/llms.txt`; **`static/llms-full.txt`** is generated on `npm run build` (ignored by git).
+- **MDX in docs**: When adding JSX or imports, remember `generate-llms-full.mjs` strips MDX for plain-text bundles via [`scripts/llmsMdxUtils.mjs`](scripts/llmsMdxUtils.mjs).
 
-### Tailwind Conventions
-- Use design tokens from `tailwind-ui-kit.preset.ts`
-- Semantic colors: `bg-background`, `text-foreground`, `text-muted-foreground`
-- Brand colors: `brand-navy`, `brand-orange`, `brand-amber`, `brand-blue`, `brand-white`
-- Responsive prefixes: `xs:`, `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
-- Touch targets: `min-h-touch` (44px), `touch-manipulation`
+### Do / don’t
 
-### Component Styling Pattern
-```tsx
-const baseStyles = 'rounded-lg transition-all';
-const variantStyles = 'bg-brand-blue text-foreground';
-const stateStyles = disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
-
-return <button className={`${baseStyles} ${variantStyles} ${stateStyles}`} />;
-```
-
-## Best Practices
-
-### Do
-- Keep components focused and single-purpose
-- Extract repeated logic into custom hooks
-- Use early returns for loading/error states
-- Colocate related files (component + its styles/types)
-- Use `useMemo` for expensive computations in render
-- Use lazy loading for route components (see App.tsx)
-- Use `loading="lazy"` and `decoding="async"` on images
-
-### Don't
-- Mix business logic with UI components
-- Ignore TypeScript errors (fix them)
-- Ignore Biome linting/formatting errors (run `npm run lint:fix` and `npm run format`)
-- Store sensitive data in frontend state
-
-### File Organization
-- Pages: One directory per feature (`pages/landing/`, `pages/projects/`)
-- Components: Group by function (`UI/`, `layout/`)
-- Hooks: One hook per file in `hooks/`
-- Constants: Centralized in `constants/` (navigation.ts, externalLinks.ts, community.json)
-
-### Performance
-- Use `React.memo()` sparingly for expensive components
-- Pagination for large data sets (see `ProjectsTable`)
-- Lazy load routes (all routes use React.lazy in App.tsx)
-- Optimize images: use WebP format, include width/height attributes
-- Use CSS visibility toggle for tab switching (see ResourcesTabs)
-
-### External Data Integration
-- Google Sheets: Fetch CSV via public export URL, parse with custom `parseCSV` function
-- Google Docs: Embed via iframe with published document URL
-- External forms: Link to Google Forms for enrollment
+- **Do** run **`npm run check`** and **`npm run test:coverage`** before pushing (matches [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
+- **Do** keep changes to docs/plugins/registry in sync (broken links fail the build).
+- **Don’t** assume Vite, React Router, Tailwind, Biome, or Google Sheets pipelines — those belong to other projects, not this repo.
