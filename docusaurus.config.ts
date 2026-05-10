@@ -169,17 +169,58 @@ const config: Config = {
         height: 26,
       },
       items: [
-        { to: '/', label: 'Start', position: 'left' },
-        { to: '/agents', label: 'Agents', position: 'left' },
+        { to: '/', label: 'Home', position: 'left' },
+        {
+          type: 'dropdown',
+          label: 'Humans',
+          position: 'left',
+          activeBaseRegex: '^/(docs|contribute|showcase)(/|$)',
+          items: [
+            {
+              to: '/docs/intro/what-is-a-microproduct',
+              label: 'What is a microproduct?',
+            },
+            {
+              to: '/docs/intro/mission',
+              label: 'Mission',
+            },
+            {
+              to: '/docs/playbook/getting-started',
+              label: 'Getting started',
+            },
+            {
+              to: '/docs/playbook/ideation',
+              label: 'Ideation',
+            },
+            {
+              to: '/contribute',
+              label: 'How to contribute',
+            },
+            {
+              to: '/showcase',
+              label: 'Showcase',
+            },
+          ],
+        },
+        {
+          type: 'dropdown',
+          label: 'Agents',
+          position: 'left',
+          activeBaseRegex: '^/agents(/|$)',
+          items: [
+            { to: '/agents', label: 'Agents hub' },
+            { label: 'AGENTS.md', href: 'pathname:///AGENTS.md' },
+            { label: 'llms-full.txt', href: 'pathname:///llms-full.txt' },
+            { label: 'registry.json', href: 'pathname:///registry.json' },
+            {
+              label: 'product.schema.json',
+              href: 'pathname:///schemas/product.schema.json',
+            },
+          ],
+        },
         { to: '/registry', label: 'Registry', position: 'left' },
         { to: '/schemas', label: 'Schemas', position: 'left' },
         { to: '/build', label: 'Build', position: 'left' },
-        {
-          to: '/docs/intro/what-is-a-microproduct',
-          label: 'Docs',
-          position: 'left',
-          activeBaseRegex: '^/docs/',
-        },
       ],
     },
     footer: {
@@ -198,6 +239,18 @@ const config: Config = {
     Trilemma Foundation is a Canadian Registered Charity that incubates technical talent through global university partnerships, open source collaboration, and performance based opportunities. Our mission is to enable the brightest minds to rise based on performance.
   </p>
 </div>`,
+            },
+          ],
+        },
+        {
+          title: 'On this site',
+          className: 'footer-col--on-site',
+          items: [
+            { label: 'Home', to: '/' },
+            { label: 'Agents', to: '/agents' },
+            {
+              label: 'Human intro',
+              to: '/docs/intro/what-is-a-microproduct',
             },
           ],
         },

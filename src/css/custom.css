@@ -196,8 +196,9 @@ textarea:focus-visible {
   display: none;
 }
 
-/* Connect sits beside foundation (no wide empty strip); narrow link column */
-.footer .footer-col--connect {
+/* Connect + on-site: narrow link columns beside foundation */
+.footer .footer-col--connect,
+.footer .footer-col--on-site {
   flex: 0 1 15rem;
   min-width: 0;
 }
@@ -211,7 +212,8 @@ textarea:focus-visible {
 }
 
 /* Section label — clearly separate from link list */
-.footer .footer-col--connect .footer__title {
+.footer .footer-col--connect .footer__title,
+.footer .footer-col--on-site .footer__title {
   display: block;
   margin: 0.15rem 0 0.75rem;
   font-size: 0.6875rem;
@@ -227,7 +229,8 @@ textarea:focus-visible {
   gap: 1rem;
 }
 
-.footer .footer-col--connect .footer__items {
+.footer .footer-col--connect .footer__items,
+.footer .footer-col--on-site .footer__items {
   gap: 0.5rem;
 }
 
