@@ -13,11 +13,11 @@
 ```
 ├── docs/                 # Documentation (MD/MDX); split across multiple @docusaurus/plugin-content-docs instances
 ├── src/
-│   ├── pages/           # React pages (e.g. audience chooser, registry, schemas, build)
+│   ├── pages/           # React pages (e.g. audience chooser)
 │   ├── components/      # Shared React (e.g. ControlSurface, UniversityMarquee)
 │   ├── theme/           # Swizzled theme pieces (e.g. Navbar)
 │   ├── css/             # Global styles
-│   ├── utils/, types/   # Helpers and TS types
+│   ├── utils/           # Helpers
 │   └── __mocks__/       # Jest mocks for @docusaurus/* and @theme/*
 ├── static/              # Served as-is at site root (e.g. AGENTS.md, llms.txt, registry.json — see .gitignore for generated llms-full.txt)
 ├── scripts/             # build helpers, validation, generate-llms-full.mjs
@@ -34,7 +34,7 @@ Config entry points: [`docusaurus.config.ts`](docusaurus.config.ts), [`sidebars.
 - **`/agents`** — Agent-facing docs island (`docs/agents`, `routeBasePath: agents`)
 - **Core docs** — Default docs plugin under `/docs/...` (e.g. intro, playbook)
 - **Other doc islands** — `/showcase`, `/contribute`, `/templates`, `/archetypes`, `/standards` (see `docsIslandPlugins` in `docusaurus.config.ts`)
-- **Custom pages** — e.g. [`src/pages/registry.tsx`](src/pages/registry.tsx), [`src/pages/schemas.tsx`](src/pages/schemas.tsx), [`src/pages/build.tsx`](src/pages/build.tsx)
+- **Custom pages** — e.g. [`src/pages/index.tsx`](src/pages/index.tsx)
 
 Navbar/footer grouping for Humans vs Agents is configured in `themeConfig` in [`docusaurus.config.ts`](docusaurus.config.ts).
 

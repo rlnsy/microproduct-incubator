@@ -210,9 +210,6 @@ const config: Config = {
             },
           ],
         },
-        { to: '/registry', label: 'Registry', position: 'left' },
-        { to: '/schemas', label: 'Schemas', position: 'left' },
-        { to: '/build', label: 'Build', position: 'left' },
       ],
     },
     footer: {

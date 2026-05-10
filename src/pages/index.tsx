@@ -23,7 +23,7 @@ export default function Home() {
             <div className="bt-two-column-grid">
               <ActionCard
                 title="AI agents"
-                description="Hub pages with instructions, registry endpoints, schema contracts, and workflows into templates and standards."
+                description="Hub pages with instructions, machine-readable artifacts, and workflows into templates and standards."
                 actions={[
                   {
                     label: 'Open the agents hub',
@@ -34,7 +34,7 @@ export default function Home() {
                 aside={
                   <div className="bt-inline-pills">
                     <MetadataPill tone="accent">Agent-first</MetadataPill>
-                    <MetadataPill>Registry + schemas</MetadataPill>
+                    <MetadataPill>Templates + standards</MetadataPill>
                   </div>
                 }
               />
@@ -60,9 +60,6 @@ export default function Home() {
               className="bt-secondary-links bt-chooser-quicklinks"
               aria-label="Quick links"
             >
-              <Link to="/registry">Registry</Link>
-              <Link to="/build">Build</Link>
-              <Link to="/schemas">Schemas</Link>
               <Link to="/docs/intro/what-is-a-microproduct">Docs</Link>
             </nav>
           </PageSection>

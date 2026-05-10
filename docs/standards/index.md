@@ -12,6 +12,6 @@ Standards unify how humans—and AI agents—judge completeness and readiness ac
 - [Folder contract](/standards/folder-contract): required repositories layout and rationale for each Markdown contract.
 - [Maturity model](/standards/maturity-model): numbered levels tying registry metadata to actionable expectations.
 - [What counts as a good microproduct](/standards/what-counts-as-good): guardrails bridging mission language with pragmatic review cues.
-- Metadata schema endpoints live at `/schemas/` (browse from [Schemas landing](pathname:///schemas)) for programmatic validation.
+- Metadata schema files are served under `/schemas/` (see the **[agents hub](/agents)**); use them for programmatic validation.
 
 Agents should reconcile every deliverable against these Standards **before** opening a submission PR.

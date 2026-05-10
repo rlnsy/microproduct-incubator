@@ -34,5 +34,5 @@ maturity_label: prototype
 ## Cross-links
 
 - [Folder contract](/standards/folder-contract)
-- [Registry UI](pathname:///registry)
+- [`registry.json`](pathname:///registry.json)
 - [Archetypes](/archetypes)

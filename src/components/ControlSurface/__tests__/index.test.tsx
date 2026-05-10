@@ -112,4 +112,24 @@ describe('ControlSurface', () => {
     expect(screen.getByRole('heading', { name: 'Minimal step' })).toBeInTheDocument();
     expect(screen.queryByText('Expected artifacts')).not.toBeInTheDocument();
   });
+
+  it('renders StepItem with command, artifacts, and outcome', () => {
+    render(
+      <StepItem
+        index={2}
+        title="Full step"
+        description="All optional blocks"
+        command="npm test"
+        artifacts={['artifact-a', 'artifact-b']}
+        outcome="Validators pass."
+      />,
+    );
+
+    expect(screen.getByText('npm test')).toBeInTheDocument();
+    expect(screen.getByText('Expected artifacts')).toBeInTheDocument();
+    expect(screen.getByText('artifact-a')).toBeInTheDocument();
+    expect(screen.getByText('artifact-b')).toBeInTheDocument();
+    expect(screen.getByText('What good looks like:')).toBeInTheDocument();
+    expect(screen.getByText('Validators pass.')).toBeInTheDocument();
+  });
 });
