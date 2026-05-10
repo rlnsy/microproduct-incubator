@@ -7,7 +7,7 @@ describe('Home page', () => {
     render(<Home />);
 
     expect(screen.getByTestId('layout')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Choose your path' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Turn Data Into Microproducts' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'AI agents' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Humans' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Open the agents hub/i })).toHaveAttribute(

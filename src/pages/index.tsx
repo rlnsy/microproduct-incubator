@@ -1,5 +1,4 @@
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 import {
   ActionCard,
   MetadataPill,
@@ -9,14 +8,13 @@ import {
 export default function Home() {
   return (
     <Layout
-      title="Choose your path"
-      description="Build Trilemma splits into an AI-agent hub and a human playbook. Pick where you are starting."
+      title="Turn Data Into Microproducts"
+      description="An AI-agent hub and a human playbook—pick where you are starting."
     >
       <main className="bt-shell">
         <div className="bt-page">
           <PageSection
-            eyebrow="Build Trilemma"
-            title="Choose your path"
+            title="Turn Data Into Microproducts"
             description="Agents should start at the hub with machine-readable entrypoints. Humans should start with the microproduct definition, then follow the operational build sequence."
             variant="hero"
           >
@@ -56,12 +54,6 @@ export default function Home() {
                 }
               />
             </div>
-            <nav
-              className="bt-secondary-links bt-chooser-quicklinks"
-              aria-label="Quick links"
-            >
-              <Link to="/docs/intro/what-is-a-microproduct">Docs</Link>
-            </nav>
           </PageSection>
         </div>
       </main>

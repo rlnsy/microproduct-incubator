@@ -85,7 +85,7 @@ describe('ControlSurface', () => {
   it('renders non-hero sections and optional content branches', () => {
     render(
       <>
-        <PageSection title="Default section">
+        <PageSection eyebrow="Section eyebrow" title="Default section">
           <div>Body</div>
         </PageSection>
         <ActionCard
@@ -101,6 +101,7 @@ describe('ControlSurface', () => {
       </>,
     );
 
+    expect(screen.getByText('Section eyebrow')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Default section' })).toBeInTheDocument();
     expect(screen.getByText('Body')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Fallback route' })).toHaveAttribute('href', '/');
