@@ -1,143 +1,72 @@
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import {
   ActionCard,
   MetadataPill,
   PageSection,
 } from '../components/ControlSurface';
-import UniversityMarquee from '../components/UniversityMarquee';
 
 export default function Home() {
   return (
     <Layout
-      title="Build Trilemma"
-      description="Discover patterns, scaffold microproducts, and validate submissions — for humans and AI agents."
+      title="Choose your path"
+      description="Build Trilemma splits into an AI-agent hub and a human playbook. Pick where you are starting."
     >
       <main className="bt-shell">
         <div className="bt-page">
           <PageSection
-            eyebrow="Start"
-            title="Agent launchpad for building and auditing microproducts"
-            description="Build Trilemma should feel operational the moment an agent or teammate lands here. Start with machine-readable artifacts, move into the build sequence, then branch into live patterns and standards."
+            eyebrow="Build Trilemma"
+            title="Choose your path"
+            description="Agents should start at the hub with machine-readable entrypoints. Humans should start with the microproduct definition, then follow the operational build sequence."
             variant="hero"
           >
-            <div className="bt-hero-grid">
+            <div className="bt-two-column-grid">
               <ActionCard
-                title="Start an agent"
-                description="Use the canonical artifacts that agents need first: instructions, compressed context, registry metadata, and schema contracts."
+                title="AI agents"
+                description="Hub pages with instructions, registry endpoints, schema contracts, and workflows into templates and standards."
                 actions={[
                   {
-                    label: 'AGENTS.md',
-                    href: 'pathname:///AGENTS.md',
-                    description: 'Root operating instructions for contributor agents.',
-                    copyValue: '/AGENTS.md',
-                  },
-                  {
-                    label: 'llms-full.txt',
-                    href: 'pathname:///llms-full.txt',
-                    description: 'Compressed long-form context bundle for LLM workflows.',
-                    copyValue: '/llms-full.txt',
-                  },
-                  {
-                    label: 'registry.json',
-                    href: 'pathname:///registry.json',
-                    description: 'Machine-readable microproduct index for discovery and tooling.',
-                    copyValue: '/registry.json',
-                  },
-                  {
-                    label: 'product.schema.json',
-                    href: 'pathname:///schemas/product.schema.json',
-                    description: 'Canonical registry contract mirrored from static schemas.',
-                    copyValue: '/schemas/product.schema.json',
+                    label: 'Open the agents hub',
+                    to: '/agents',
+                    description: 'Canonical web entry for contributor agents and tooling.',
                   },
                 ]}
                 aside={
                   <div className="bt-inline-pills">
-                    <MetadataPill tone="accent">AI-agent first</MetadataPill>
-                    <MetadataPill>Machine-readable</MetadataPill>
-                    <MetadataPill>Audit-friendly</MetadataPill>
+                    <MetadataPill tone="accent">Agent-first</MetadataPill>
+                    <MetadataPill>Registry + schemas</MetadataPill>
                   </div>
                 }
               />
               <ActionCard
-                title="Ship a microproduct"
-                description="Follow the same 4-step flow humans and agents use when turning an idea into a registry-ready product."
+                title="Humans"
+                description="Understand what a microproduct is, then walk the same folder contract, archetype, template, and validation path."
                 actions={[
                   {
-                    label: '1. Define the folder contract',
-                    to: '/standards/folder-contract',
-                    description: 'Anchor the problem statement, artifacts, and local agent instructions.',
-                  },
-                  {
-                    label: '2. Pick an archetype',
-                    to: '/archetypes',
-                    description: 'Choose the nearest product pattern before implementation starts.',
-                  },
-                  {
-                    label: '3. Clone a starter',
-                    to: '/templates',
-                    description: 'Fork the closest template from product-templates.',
-                  },
-                  {
-                    label: '4. Validate and register',
-                    to: '/build',
-                    description: 'Run validation, review outputs, and publish registry metadata.',
-                  },
-                ]}
-              />
-              <ActionCard
-                title="Browse live patterns"
-                description="Jump directly into the most useful examples, references, and operating standards."
-                actions={[
-                  {
-                    label: 'Registry',
-                    to: '/registry',
-                    description: 'Scan active products, maturity, and agent entrypoints.',
-                  },
-                  {
-                    label: 'Archetypes',
-                    to: '/archetypes',
-                    description: 'Review recurring product shapes and decision patterns.',
-                  },
-                  {
-                    label: 'Templates',
-                    to: '/templates',
-                    description: 'Open opinionated starters for common build paths.',
+                    label: 'Start with What is a microproduct?',
+                    to: '/docs/intro/what-is-a-microproduct',
+                    description: 'Definition, characteristics, and your path on this site.',
                   },
                 ]}
                 aside={
-                  <div className="bt-secondary-links">
-                    <a href="/standards">Standards</a>
-                    <a href="/showcase">Showcase</a>
-                    <a href="/contribute">Contribute</a>
-                    <a href="/agents">Agents hub</a>
+                  <div className="bt-inline-pills">
+                    <MetadataPill>Playbook</MetadataPill>
+                    <MetadataPill>Templates + standards</MetadataPill>
                   </div>
                 }
               />
             </div>
-          </PageSection>
-
-          <PageSection
-            eyebrow="Why This Exists"
-            title="A control surface, not a thin marketing shell"
-            description="The primary path is operational: artifacts to ingest, build steps to execute, and references to audit. Supporting docs still matter, but they should sit behind the work instead of replacing it."
-          >
-            <div className="bt-summary-grid">
-              <article className="bt-summary-card">
-                <h3>Operational by default</h3>
-                <p>Commands, schemas, and registry endpoints are promoted above prose.</p>
-              </article>
-              <article className="bt-summary-card">
-                <h3>Useful to agents and humans</h3>
-                <p>Machine-readable assets stay canonical while pages remain reviewable and scannable.</p>
-              </article>
-              <article className="bt-summary-card">
-                <h3>Built on the current stack</h3>
-                <p>Docusaurus remains the frame; the upgrade is information hierarchy and interaction design.</p>
-              </article>
-            </div>
+            <nav
+              className="bt-secondary-links bt-chooser-quicklinks"
+              aria-label="Quick links"
+            >
+              <Link to="/registry">Registry</Link>
+              <Link to="/build">Build</Link>
+              <Link to="/schemas">Schemas</Link>
+              <Link to="/docs/intro/what-is-a-microproduct">Docs</Link>
+            </nav>
           </PageSection>
         </div>
-        <UniversityMarquee />
       </main>
     </Layout>
   );

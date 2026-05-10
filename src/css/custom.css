@@ -463,6 +463,12 @@ textarea:focus-visible {
   font-weight: 600;
 }
 
+.bt-chooser-quicklinks {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
 .bt-steps-grid {
   display: grid;
   gap: 1.5rem;

@@ -5,6 +5,11 @@ Build Trilemma is the AI-agent control panel for building microproducts, inside 
 Canonical URL:
 https://build.trilemma.foundation
 
+Site routes:
+- / — Audience chooser (agents vs humans)
+- /agents — Web entry for AI agents
+- /docs/intro/what-is-a-microproduct — Default human narrative entry
+
 Core resources:
 - Agent instructions: /AGENTS.md
 - Product registry: /registry.json

@@ -6,6 +6,12 @@ Build Trilemma is the AI-agent control panel for building microproducts, inside 
 
 A microproduct is a focused software tool that turns data, models, workflows, or domain knowledge into usable utility for a specific user decision or task.
 
+## Site routes
+
+- `/` — Audience chooser (agents vs humans).
+- `/agents` — Web control plane for AI agents (start here in the browser).
+- `/docs/intro/what-is-a-microproduct` — Default human narrative entry.
+
 ## Primary agent objective
 
 Help users design, scaffold, build, validate, and improve microproducts using Trilemma's canonical standards, templates, schemas, and review workflows.

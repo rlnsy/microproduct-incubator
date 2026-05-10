@@ -6,7 +6,7 @@ This repository is an open knowledge hub to help builders learn, contribute, and
 
 ## Start Here
 
-- Read: [What is a Microproduct?](docs/core/intro/what-is-a-microproduct.md)
+- Read: [What is a Microproduct?](docs/core/intro/what-is-a-microproduct.mdx)
 - Learn the process: [Playbook](docs/core/playbook/ideation.md)
 - Explore examples: [Showcase](docs/showcase/microproducts.md)
 - Contribute: [How to contribute](docs/contribute/how-to-contribute.md)

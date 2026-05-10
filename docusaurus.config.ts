@@ -170,6 +170,7 @@ const config: Config = {
       },
       items: [
         { to: '/', label: 'Start', position: 'left' },
+        { to: '/agents', label: 'Agents', position: 'left' },
         { to: '/registry', label: 'Registry', position: 'left' },
         { to: '/schemas', label: 'Schemas', position: 'left' },
         { to: '/build', label: 'Build', position: 'left' },

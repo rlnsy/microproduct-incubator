@@ -22,6 +22,18 @@ function stripYamlFrontmatter(text) {
   return text.slice(end + 5).trim();
 }
 
+/** Strip MDX import lines and embedded React components for plain-text context bundles. */
+function stripMdxForPlainText(text) {
+  return text
+    .replace(/^import\s+.+$/gm, '')
+    .replace(/<UniversityMarquee\s*\/>/g, '')
+    .trim();
+}
+
+function stripFrontmatterAndMdxForLlms(text) {
+  return stripMdxForPlainText(stripYamlFrontmatter(text));
+}
+
 /** @param {string} rel relative to ROOT */
 function readRel(rel, label, transform = stripYamlFrontmatter) {
   const fp = path.join(ROOT, rel);
@@ -37,7 +49,11 @@ const sources = [
   ['static/registry.json', 'Machine-readable registry'],
   ['static/schemas/product.schema.json', 'Product schema'],
 
-  ['docs/core/intro/what-is-a-microproduct.md', 'Microproduct definition', stripYamlFrontmatter],
+  [
+    'docs/core/intro/what-is-a-microproduct.mdx',
+    'Microproduct definition',
+    stripFrontmatterAndMdxForLlms,
+  ],
   ['docs/core/intro/mission.md', 'Mission', stripYamlFrontmatter],
   ['docs/templates/index.md', 'Templates overview', stripYamlFrontmatter],
   ['docs/agents/index.md', 'Agents hub', stripYamlFrontmatter],
