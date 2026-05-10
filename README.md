@@ -6,6 +6,7 @@ This repository is an open knowledge hub to help builders learn, contribute, and
 
 ## Start Here
 
+- **Site routing:** On the deployed site, `/` is an audience chooser. Use `/agents` for the agent web hub or `/docs/intro/what-is-a-microproduct` for the default human intro (paths match this repo’s Docusaurus routes).
 - Read: [What is a Microproduct?](docs/core/intro/what-is-a-microproduct.mdx)
 - Learn the process: [Playbook](docs/core/playbook/ideation.md)
 - Explore examples: [Showcase](docs/showcase/microproducts.md)
