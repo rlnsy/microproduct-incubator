@@ -1,6 +1,7 @@
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { SITE_URL } from './siteUrl';
+import docReadTimesPlugin from './src/plugins/docReadTimes';
 
 const REPO_URL = 'https://github.com/TrilemmaFoundation/microproduct-lab';
 
@@ -110,7 +111,7 @@ const config: Config = {
       {
         debug: false,
         docs: {
-          path: 'docs/core',
+          path: 'docs/human',
           sidebarPath: './sidebars.ts',
           editUrl: `${REPO_URL}/edit/main/`,
         },
@@ -134,7 +135,15 @@ const config: Config = {
           editUrl: DOC_ISLAND_EDIT_URL,
         },
       ] as const,
-  ),
+  ).concat([
+    [
+      docReadTimesPlugin,
+      {
+        siteDir: __dirname,
+        docRoots: ['docs/human', ...docsIslandPlugins.map((spec) => spec.path)],
+      },
+    ],
+  ]),
 
   themeConfig: {
     colorMode: {
@@ -155,65 +164,13 @@ const config: Config = {
     navbar: {
       logo: {
         alt: 'Trilemma Foundation',
-        src: 'img/trilemma_foundation_white.png',
-        srcDark: 'img/trilemma_foundation_white.png',
+        src: 'img/foundation_white.webp',
+        srcDark: 'img/foundation_white.webp',
         href: '/',
-        height: 26,
+        height: 32,
       },
-      items: [
-        { to: '/', label: 'Home', position: 'left' },
-        {
-          type: 'dropdown',
-          label: 'Humans',
-          position: 'left',
-          activeBaseRegex: '^/(docs|contribute|showcase)(/|$)',
-          items: [
-            {
-              to: '/docs/intro/what-is-a-microproduct',
-              label: 'What is a microproduct?',
-            },
-            {
-              to: '/docs/intro/mission',
-              label: 'Mission',
-            },
-            {
-              to: '/docs/playbook/getting-started',
-              label: 'Getting started',
-            },
-            {
-              to: '/docs/playbook/ideation',
-              label: 'Ideation',
-            },
-            {
-              to: '/contribute',
-              label: 'How to contribute',
-            },
-            {
-              to: '/showcase',
-              label: 'Showcase',
-            },
-          ],
-        },
-        {
-          type: 'dropdown',
-          label: 'Agents',
-          position: 'left',
-          activeBaseRegex: '^/agents(/|$)',
-          items: [
-            { to: '/agents', label: 'Agents hub' },
-            { label: 'AGENTS.md', href: 'pathname:///AGENTS.md' },
-            { label: 'llms-full.txt', href: 'pathname:///llms-full.txt' },
-            { label: 'registry.json', href: 'pathname:///registry.json' },
-            {
-              label: 'product.schema.json',
-              href: 'pathname:///schemas/product.schema.json',
-            },
-          ],
-        },
-      ],
     },
     footer: {
-      // Infima: 'light' omits .footer--dark (hardcoded grey/blue); tokens come from custom.css.
       style: 'light',
       links: [
         {
@@ -222,7 +179,7 @@ const config: Config = {
             {
               html: `<div class="footer-foundation">
   <a class="footer-foundation__logo-link" href="/" aria-label="Trilemma Foundation home">
-    <img class="footer-foundation__logo" src="/img/trilemma_foundation_white.png" alt="Trilemma Foundation" loading="lazy" />
+    <img class="footer-foundation__logo" src="/img/foundation_white.webp" alt="Trilemma Foundation" loading="lazy" />
   </a>
   <p class="footer-foundation__description">
     Trilemma Foundation is a Canadian Registered Charity that incubates technical talent through global university partnerships, open source collaboration, and performance based opportunities. Our mission is to enable the brightest minds to rise based on performance.
@@ -232,15 +189,17 @@ const config: Config = {
           ],
         },
         {
-          title: 'On this site',
-          className: 'footer-col--on-site',
+          title: 'Quick Links',
+          className: 'footer-col--quick-links',
           items: [
             { label: 'Home', to: '/' },
-            { label: 'Agents', to: '/agents' },
             {
-              label: 'Human intro',
-              to: '/docs/intro/what-is-a-microproduct',
+              label: 'Human Overview',
+              to: '/docs/human-overview',
             },
+            { label: 'Templates', to: '/templates' },
+            { label: 'Agents', to: '/agents' },
+            { label: 'Showcase', to: '/showcase' },
           ],
         },
         {
@@ -270,7 +229,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Trilemma Foundation`,
+      copyright: `© ${new Date().getFullYear()} Trilemma Foundation. All rights reserved.`,
     },
   } satisfies Preset.ThemeConfig,
 };

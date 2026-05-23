@@ -1,8 +1,10 @@
 ---
-title: End-to-End Ownership
+title: Operate
 description: "Phase 3 of the playbook: own distribution, learning, and iteration after launch."
-tags: [playbook, ownership]
+slug: /playbook/operate
+tags: [playbook, operate]
 last_reviewed: 2026-03-05
+authors: [trilemma-foundation]
 ---
 
 ## Phase Goal

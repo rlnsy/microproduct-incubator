@@ -1,8 +1,10 @@
 ---
 title: Product templates overview
 description: Starter repositories for scaffolding microproducts—from data apps to agentic workflows.
+content_kind: reference
 slug: /
 last_reviewed: 2026-05-04
+authors: [trilemma-foundation]
 ---
 
 Build Trilemma hosts opinionated starters under **`product-templates/`** in [microproduct-lab](https://github.com/TrilemmaFoundation/microproduct-lab). Each starter includes README, AGENTS guidance, YAML metadata stubs, Markdown contracts, `src/` and `tests/` placeholders, and GitHub Actions (stub workflows until you attach a toolchain).

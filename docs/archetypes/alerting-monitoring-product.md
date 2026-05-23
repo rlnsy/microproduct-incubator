@@ -1,8 +1,10 @@
 ---
 title: "Archetype: Alerting monitoring product"
 description: Time-series and event streams that demand fast human or automated response.
+content_kind: reference
 slug: alerting-monitoring-product
 last_reviewed: 2026-05-04
+authors: [trilemma-foundation]
 ---
 
 

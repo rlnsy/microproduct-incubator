@@ -1,8 +1,10 @@
 ---
 title: Ideation
 description: Phase 1 module for defining a viable microproduct opportunity from data and demand.
+slug: /playbook/ideation
 tags: [playbook, ideation]
 last_reviewed: 2026-03-05
+authors: [trilemma-foundation]
 ---
 
 ## Phase Goal

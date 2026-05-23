@@ -2,38 +2,42 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   incubatorSidebar: [
-    {
-      type: 'category',
-      label: 'Intro',
-      items: ['intro/what-is-a-microproduct', 'intro/mission'],
-    },
+    'human-overview',
     {
       type: 'category',
       label: 'Playbook',
       items: [
         {
           type: 'category',
-          label: 'Getting Started',
+          label: 'Intro Section',
           items: [
-            'playbook/getting-started',
-            'playbook/ideation',
-            'playbook/architecture',
-            'playbook/data-stack-analytics-engineering',
+            'playbook/intro/what-is-a-microproduct',
+            'playbook/intro/mission',
           ],
         },
         {
           type: 'category',
-          label: 'Implementation',
+          label: 'Frame Section',
           items: [
-            'playbook/implementation-phase',
-            'playbook/implementation',
-            'playbook/qa-methodology',
+            'playbook/frame/frame',
+            'playbook/frame/ideation',
+            'playbook/frame/architecture',
+            'playbook/frame/data-stack-analytics-engineering',
           ],
         },
         {
           type: 'category',
-          label: 'End-to-End Ownership',
-          items: ['playbook/end-to-end-ownership'],
+          label: 'Build Section',
+          items: [
+            'playbook/build/build',
+            'playbook/build/build-module',
+            'playbook/build/qa-methodology',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Operate Section',
+          items: ['playbook/operate/operate'],
         },
       ],
     },
@@ -41,6 +45,11 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Resources',
       items: ['resources/index'],
+    },
+    {
+      type: 'category',
+      label: 'Authors',
+      items: ['authors/index'],
     },
   ],
 };

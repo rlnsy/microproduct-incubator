@@ -7,15 +7,19 @@ describe('Home page', () => {
     render(<Home />);
 
     expect(screen.getByTestId('layout')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Turn Data Into Microproducts' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'AI agents' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Humans' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Open the agents hub/i })).toHaveAttribute(
+    expect(screen.getByRole('heading', { name: 'Turn Data Into Value' })).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'An open source knowledge hub by Trilemma Foundation for our community of builders.',
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Humans' })).toHaveAttribute(
+      'href',
+      '/docs/human-overview',
+    );
+    expect(screen.getByRole('link', { name: 'Agents' })).toHaveAttribute(
       'href',
       '/agents',
     );
-    expect(
-      screen.getByRole('link', { name: /Start with What is a microproduct/i }),
-    ).toHaveAttribute('href', '/docs/intro/what-is-a-microproduct');
   });
 });

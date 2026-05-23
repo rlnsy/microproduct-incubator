@@ -1,8 +1,10 @@
 ---
 title: "Archetype: Risk scoring product"
 description: Prioritize cases, assets, or actions when downside risk dominates decisions.
+content_kind: reference
 slug: risk-scoring-product
 last_reviewed: 2026-05-04
+authors: [trilemma-foundation]
 ---
 
 

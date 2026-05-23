@@ -1,8 +1,10 @@
 ---
-title: Implementation
+title: Build Module
 description: Phase 2 module for delivering an MVP with clear PM workflows and execution controls.
-tags: [playbook, implementation]
+slug: /playbook/build-module
+tags: [playbook, build]
 last_reviewed: 2026-03-05
+authors: [trilemma-foundation]
 ---
 
 ## Phase Goal
@@ -31,7 +33,7 @@ Translate validated scope into a reliable MVP through structured execution and t
 ## Definition of Done (MVP)
 
 - Core task completion in under three minutes for target users.
-- Critical paths covered by implementation-phase quality gates.
+- Critical paths covered by build-phase quality gates.
 - Meaningful telemetry and user feedback loop in place.
 - Pilot release feedback translated into a prioritized iteration plan.
 

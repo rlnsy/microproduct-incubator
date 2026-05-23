@@ -1,8 +1,10 @@
 ---
 title: "Archetype: Simulation backtesting product"
 description: Counterfactual experiments that stress decisions before capital is deployed.
+content_kind: reference
 slug: simulation-backtesting-product
 last_reviewed: 2026-05-04
+authors: [trilemma-foundation]
 ---
 
 

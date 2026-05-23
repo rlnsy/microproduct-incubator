@@ -1,8 +1,10 @@
 ---
 title: Maturity model
 description: Numeric readiness scale shared across docs, submissions, registry metadata, and review checklists.
+content_kind: reference
 slug: maturity-model
 last_reviewed: 2026-05-04
+authors: [trilemma-foundation]
 ---
 
 | Level | Label | Meaning |

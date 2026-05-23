@@ -1,7 +1,9 @@
 ---
 title: Data Stack & Analytics Engineering
 description: Opinionated MVP patterns for orchestration, transformation, and analytics storage.
+slug: /playbook/data-stack-analytics-engineering
 last_reviewed: 2026-03-05
+authors: [trilemma-foundation]
 ---
 
 ## Context
@@ -125,5 +127,5 @@ Move from DuckDB to Snowflake when one or more thresholds are consistently true:
 
 ## Next Step
 
-- Apply these decisions in [Implementation](/docs/playbook/implementation).
+- Apply these decisions in [Build](/docs/playbook/build).
 - Validate delivery quality with [QA Methodology](/docs/playbook/qa-methodology).
