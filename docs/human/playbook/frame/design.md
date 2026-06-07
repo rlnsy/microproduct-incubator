@@ -3,6 +3,7 @@ title: Design
 description: Serves the 'planning' phase of the implementation cycle with key decisions and guidance for translating ideas into implementable changes.
 tags: [playbook, implementation]
 last_reviewed: 2026-06-07
+authors: [trilemma-foundation]
 ---
 
 Requirements gathering, feature requests bug reports and analytics insights all feed into the software development pipeline to continually build and refine the product. Communicating with stakeholders, learning from domain experts, and observing the product in production are vital for delivering high-value, high-quality capabilities. We use the umbrella term 'design' to refer to the process of converting those learnings into concrete software specifications, which in turn become tasks for human coders or agents. This includes, but is certainly not limited to, the creation of mockups and other visual representations of user interfaces.
