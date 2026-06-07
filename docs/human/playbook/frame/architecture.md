@@ -3,7 +3,7 @@ title: Architecture
 description: Phase 1 module for selecting a practical modern data pipeline and system baseline.
 slug: /playbook/architecture
 tags: [playbook, architecture]
-last_reviewed: 2026-03-05
+last_reviewed: 2026-06-07
 authors: [trilemma-foundation]
 ---
 
@@ -32,6 +32,19 @@ Evaluate database choices against:
 - Operational burden for backup, scaling, and reliability.
 - Team familiarity and implementation speed.
 - Integration fit with pipeline and analytics tooling.
+
+## Code Organization
+The module boundaries and communication architecture of your application have a large
+impact on its clarity, testability and maintainability. This should be taken
+into consideration when designing and implementating all aspects of the system
+including the frontend, API, and analytics core. There are effectively two options:
+1. Layered (Traditional): modules organized by technical layer (UI, API, DB) and/or into
+models that mix business rules with storage and presentation logic.
+2. Vertical Slices: modules align with use-cases, top-to-bottom.
+
+We prefer vertical slice architecture for the following reasons: 1) Microproducts are conceived around and driven by user value and should be organized and tested accordingly. 2) Deep modules are provden to work well in agentic engineering workflows and enable easy to verify incremental progress during development.
+
+Of course, teams should choose the style that works best for their project, and architecture patterns can be mixed. Lean on vertical slicing as a default while considering alternatives for exceptionally complex domains.
 
 ## 12-Month Feasibility Lens
 
