@@ -3,7 +3,7 @@ title: QA Methodology
 description: Phase 2 QA track for validating agent-assisted builds and ensuring progress.
 slug: /playbook/qa-methodology
 tags: [playbook, qa]
-last_reviewed: 2026-05-06
+last_reviewed: 2026-06-07
 authors: [trilemma-foundation]
 ---
 
@@ -34,7 +34,7 @@ Our quality assurance methodology has the following characteristics:
 
 1. [Practical Software Design](#practical-software-design)
 2. [Automation](#automation)
-3. [Thoughtful Quality Gates & Feedback Mechanisms](#thoughtful-quality-gates--feedback-mechanisms)
+3. [Feedback Mechanisms Drive Development](#feedback-mechanisms-drive-development)
 
 Which are explored further below.
 
@@ -61,12 +61,15 @@ Well-designed systems embrace business-domain concepts and terminology in their
 specifications, tests, and documentation. Dependencies between modules should be
 apparent to domain experts.
 
+Finally, use-case focused design allows feature delivery QA and regression testing
+to mirror actual usage patterns and prioritize value-adding capabilities.
+
 ### Automation
 
 Automated tests, CI/CD pipelines, and other AI-assisted workflows facilitate
 rapid development as the codebase and feature set grow.
 
-### Thoughtful Quality Gates & Feedback Mechanisms
+### Feedback Mechanisms Drive Development
 
 Deterministic checks at specific points in the change lifecycle give useful
 signals to agents and human reviewers, balancing correctness with development
@@ -86,6 +89,12 @@ Static analysis tools, tests, and automated code review are invaluable for
 keeping project quality and entropy in check. The right toolset and enforcement
 points vary by team and project, but choosing them deliberately is part of the
 transition from prototype to product.
+
+Furthermore, we embrace such checks not as gates but as drivers. Feedback cycles
+form an engine that produces increasingly higher-quality artifacts and eventually
+the actual product. Automated checks combined with agents with the tools to respond
+to feedback makes a surprisingly simple but effective multi-agent orchestration
+setup.
 
 ## Agent-Assisted Testing Guidance
 
