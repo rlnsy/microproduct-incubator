@@ -133,4 +133,17 @@ describe('ControlSurface', () => {
     expect(screen.getByText('What good looks like:')).toBeInTheDocument();
     expect(screen.getByText('Validators pass.')).toBeInTheDocument();
   });
+
+  it('renders an action card aside when provided', () => {
+    render(
+      <ActionCard
+        title="With aside"
+        description="Card that includes supporting aside content"
+        actions={[{ label: 'Primary', to: '/start' }]}
+        aside={<p>Supporting context</p>}
+      />,
+    );
+
+    expect(screen.getByText('Supporting context')).toBeInTheDocument();
+  });
 });
