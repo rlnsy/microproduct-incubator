@@ -3,7 +3,7 @@ title: Architecture
 description: Phase 1 module for selecting a practical modern data pipeline and system baseline.
 slug: /playbook/architecture
 tags: [playbook, architecture]
-last_reviewed: 2026-06-07
+last_reviewed: 2026-03-05
 authors: [trilemma-foundation]
 ---
 
