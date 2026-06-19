@@ -31,6 +31,7 @@ module.exports = {
     '!src/**/__tests__/**',
     '!src/components/UniversityMarquee/**',
     '!src/theme/**',
+    '!src/plugins/**',
     '!src/constants/**',
   ],
   coverageDirectory: 'coverage',

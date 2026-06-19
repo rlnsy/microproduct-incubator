@@ -156,4 +156,18 @@ describe('PlaybookTree', () => {
       '/docs/intro/what-is-a-microproduct',
     );
   });
+
+  it('falls back to the root node when the initial selection is unknown', () => {
+    render(
+      <PlaybookTree
+        nodes={humanPlaybookTree}
+        initialSelectedId="does-not-exist"
+      />,
+    );
+
+    const detailPanel = screen.getByRole('complementary');
+    expect(
+      within(detailPanel).getByRole('heading', {name: 'Human Overview'}),
+    ).toBeInTheDocument();
+  });
 });

@@ -10,7 +10,7 @@ describe('Home page', () => {
     expect(screen.getByRole('heading', { name: 'Turn Data Into Value' })).toBeInTheDocument();
     expect(
       screen.getByText(
-        'An open source knowledge hub by Trilemma Foundation for our community of builders.',
+        'An open source knowledge hub by Trilemma Foundation for our community of builders',
       ),
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Humans' })).toHaveAttribute(
