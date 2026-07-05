@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'playbook/frame/frame',
             'playbook/frame/ideation',
+            'playbook/frame/design',
             'playbook/frame/architecture',
             'playbook/frame/data-stack-analytics-engineering',
           ],

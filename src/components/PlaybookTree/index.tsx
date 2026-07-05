@@ -84,6 +84,14 @@ export const humanPlaybookTree: PlaybookTreeNode[] = [
                 to: '/docs/playbook/ideation',
               },
               {
+                id: 'design',
+                title: 'Design',
+                level: 4,
+                description:
+                  'Define the shape of the product and its implementation, creating a blueprint for future work.',
+                to: '/docs/playbook/design',
+              },
+              {
                 id: 'architecture',
                 title: 'Architecture',
                 level: 4,
