@@ -36,11 +36,11 @@ flowchart TB
         root --> expectedImpacts["Has the expected impacts"]
         root --> matchEnvironment["Expected impacts match environment"]
         
-    timeToRelease --> exposure["Prepared for usage/exposure"] & infa["Infra/dependencies in place"] & fit["Fits the market/cost landscape and user expectations"] & cycle["On release cycle, if applicable"] & downtime["There is no downtime, or downtime is scheduled and communicated"]
+    timeToRelease --> exposure["Prepared for usage/exposure"] & infa["Infra/dependencies in place"] & fit["Fits the market/cost landscape<br/>and user expectations"] & cycle["On release cycle, if applicable"] & downtime["There is no downtime, or downtime is<br/>scheduled and communicated"]
     
     fit --> marketResearch["Market research"] & userStudy["User Study"]
     
-    expectedImpacts --> deployEffects["Deploy process has only expected side effects"] & deployedChanges["Deployed changes work as expected once deployed"]
+    expectedImpacts --> deployEffects["Deploy process has only<br/>expected side effects"] & deployedChanges["Deployed changes work<br/>as expected once deployed"]
     
     downtime --> rollback["Rollback procedure"]
     
@@ -60,7 +60,7 @@ flowchart TB
     
     tests --> completeSpecs["Complete specifications"] & literateSpecs["Literate Specs"] & automation["Automation tech and infra"]
     
-    completeSpecs --> collaboration["Collaboration with stakeholders and domain experts"]
+    completeSpecs --> collaboration["Collaboration with stakeholders<br/>and domain experts"]
     
     language["Ubiquitous language"] --> collaboration
     collaboration --> language

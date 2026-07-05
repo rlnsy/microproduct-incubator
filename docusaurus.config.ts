@@ -153,6 +153,13 @@ const config: Config = {
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
+    mermaid: {
+      // Match the label-measurement font to the rendered font so node
+      // boxes are sized correctly and text isn't clipped.
+      options: {
+        fontFamily: 'var(--ifm-font-family-base)',
+      },
+    },
     metadata: [
       { property: 'og:title', content: 'Build Trilemma' },
       {
