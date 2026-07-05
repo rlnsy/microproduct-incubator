@@ -32,6 +32,7 @@ const sidebars: SidebarsConfig = {
             'playbook/build/build',
             'playbook/build/build-module',
             'playbook/build/qa-methodology',
+            'playbook/build/release',
           ],
         },
         {
