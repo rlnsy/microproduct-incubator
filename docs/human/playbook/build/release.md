@@ -49,18 +49,24 @@ flowchart TB
 
 ```mermaid
 flowchart TB
+    classDef rootNode fill:#553417,stroke:#ff993f,color:#ffd9ab
+    classDef leafNode fill:#1e3a56,stroke:#6ca8e4,color:#cfe4f7
     timeToRelease["Right time to release"]
     timeToRelease --> exposure["Prepared for<br/>usage/exposure"] & infra["Infra/dependencies<br/>in place"] & fit["Fits the market/cost<br/>landscape and<br/>user expectations"] & cycle["On release cycle,<br/>if applicable"] & downtime["There is no downtime,<br/>or downtime is scheduled<br/>and communicated"]
 
     fit --> marketResearch["Market research"] & userStudy["User Study"]
 
     downtime --> rollback["Rollback procedure"]
+    class timeToRelease rootNode
+    class marketResearch,userStudy,rollback leafNode
 ```
 
 ## Impacts
 
 ```mermaid
 flowchart TB
+    classDef rootNode fill:#553417,stroke:#ff993f,color:#ffd9ab
+    classDef leafNode fill:#1e3a56,stroke:#6ca8e4,color:#cfe4f7
     expectedImpacts["Has the expected impacts"]
     expectedImpacts --> deployEffects["Deploy process has only<br/>expected side effects"] & deployedChanges["Deployed changes work<br/>as expected once deployed"]
 
@@ -89,6 +95,8 @@ flowchart TB
     behavior --> tests
     behavior --> agreement["Team agrees on what's<br/>added/changed/removed"] --> featureOrg
     QA --> agreement
+    class expectedImpacts rootNode
+    class rollback,plan,static,dast,model,language,completeSpecs,literateSpecs,automation,tests leafNode
 ```
 
 ## Terms
