@@ -7,7 +7,7 @@ last_reviewed: 2026-06-30
 authors: [trilemma-foundation]
 ---
 
-This decision-making flowchart and the resulting checklist aim to answer a single question "should we release?".
+These decision-making flowcharts and the resulting checklist aim to answer a single question "should we release?".
 
 Deploying large or small changes to production marks the end (of one iteration) of the SE Development/Data Analytics
 lifecycle. Ultimately, bringing value to users by making technology accessible is one of if not the main driver for
@@ -20,57 +20,78 @@ aspects of releases are the ones you don't think about; the checklist is your sa
 all aspects of putting software into the world at every iteration, and is organized into a tree shape for clarity
 and efficiency.
 
-The following diagram shows the release decision flow.
-You will find the root-level question linking down to pre-requisite questions or checklist items.
-The leaf nodes represent tools or other components of the development process or tech stack that
-are best suited for covering the relevant item. Of course, these do not come for free: Use such
-tools in a way that matches your needs and always make your own judgements about releasing.
+The following diagrams show the release decision flow: a big-picture view of the root-level
+question, followed by one diagram for each of its major branches so each stays readable at
+full size. You will find the root-level question linking down to
+pre-requisite questions or checklist items. The leaf nodes represent tools or other components
+of the development process or tech stack that are best suited for covering the relevant item.
+Of course, these do not come for free: Use such tools in a way that matches your needs and
+always make your own judgements about releasing. A node drawn with a dashed border is a
+branch of its own, expanded in a later diagram.
 
-Terms related to release are defined/expanded below the diagram.
+Terms related to release are defined/expanded below the diagrams.
 Please refer to the glossary (TODO) for our precise definitions of any other terms used.
+
+## The Big Picture
 
 ```mermaid
 flowchart TB
+    classDef expanded stroke-dasharray: 5 5
     root["Deploy release candidate?"]
-        root --> timeToRelease["Right time to release"]
-        root --> expectedImpacts["Has the expected impacts"]
-        root --> matchEnvironment["Expected impacts match environment"]
-        
-    timeToRelease --> exposure["Prepared for usage/exposure"] & infa["Infra/dependencies in place"] & fit["Fits the market/cost landscape<br/>and user expectations"] & cycle["On release cycle, if applicable"] & downtime["There is no downtime, or downtime is<br/>scheduled and communicated"]
-    
+    root --> timeToRelease["Right time to release"]
+    root --> expectedImpacts["Has the expected impacts"]
+    root --> matchEnvironment["Expected impacts match environment"]
+    matchEnvironment --> compat["Behaviours are compatible with other systems"]
+    class timeToRelease,expectedImpacts expanded
+```
+
+## Timing
+
+```mermaid
+flowchart TB
+    timeToRelease["Right time to release"]
+    timeToRelease --> exposure["Prepared for<br/>usage/exposure"] & infra["Infra/dependencies<br/>in place"] & fit["Fits the market/cost<br/>landscape and<br/>user expectations"] & cycle["On release cycle,<br/>if applicable"] & downtime["There is no downtime,<br/>or downtime is scheduled<br/>and communicated"]
+
     fit --> marketResearch["Market research"] & userStudy["User Study"]
-    
-    expectedImpacts --> deployEffects["Deploy process has only<br/>expected side effects"] & deployedChanges["Deployed changes work<br/>as expected once deployed"]
-    
+
     downtime --> rollback["Rollback procedure"]
-    
-    deployEffects --> rollback & plan["Deploy/migration plan + staging run"]
-    
-    deployedChanges --> controlExposure["Control over exposure"] & behavior["Changes to existing behaviours match expectations"] & QA["New behaviours pass QA"]
-    
-    controlExposure --> networkAccess["Network access"] & security["Security"] & flags["Dynamic feature flags"] & auth["Authentication & Authorization"]
-    
-    security --> static["Static security analysis / code review"] & dast["DAST"]
-    
+```
+
+## Impacts
+
+```mermaid
+flowchart TB
+    expectedImpacts["Has the expected impacts"]
+    expectedImpacts --> deployEffects["Deploy process has only<br/>expected side effects"] & deployedChanges["Deployed changes work<br/>as expected once deployed"]
+
+    deployEffects --> rollback["Rollback procedure"] & plan["Deploy/migration plan<br/>+ staging run"]
+
+    deployedChanges --> controlExposure["Control over exposure"] & behavior["Changes to existing<br/>behaviours match expectations"] & QA["New behaviours pass QA"]
+
+    controlExposure --> networkAccess["Network access"] & security["Security"] & flags["Dynamic feature flags"] & auth["Authentication &<br/>Authorization"]
+
+    security --> static["Static security analysis /<br/>code review"] & dast["DAST"]
+
     flags --> featureOrg["Feature organization"]
-    
+
     featureOrg --> model["Model"]
-    
-    auth --> tests["Expressive tests with strong automation"]
-    
+
+    auth --> tests["Expressive tests with<br/>strong automation"]
+
     tests --> completeSpecs["Complete specifications"] & literateSpecs["Literate Specs"] & automation["Automation tech and infra"]
-    
+
     completeSpecs --> collaboration["Collaboration with stakeholders<br/>and domain experts"]
-    
+
     language["Ubiquitous language"] --> collaboration
     collaboration --> language
     literateSpecs --> language & model
     automation --> model
     behavior --> tests
-    behavior --> agreement[Team agrees on what's added/changed/removed] --> featureOrg
+    behavior --> agreement["Team agrees on what's<br/>added/changed/removed"] --> featureOrg
     QA --> agreement
-    matchEnvironment --> compat["Behaviours are compatible with other systems"]
 ```
+
+## Terms
 
 *Release Candidate*: (RC) A snapshot of source code (including static configuration files and deployment scripts) being evaluated for release. Usually a tagged commit.
 
