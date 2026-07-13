@@ -158,6 +158,9 @@ const config: Config = {
       // boxes are sized correctly and text isn't clipped.
       options: {
         fontFamily: 'var(--ifm-font-family-base)',
+        flowchart: {
+          useMaxWidth: false,
+        },
       },
     },
     metadata: [

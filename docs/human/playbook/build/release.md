@@ -3,36 +3,37 @@ title: Release Checklist
 description: Key release-readiness criteria, including a graph of how these relate to other components of the playbook.
 slug: /playbook/release
 tags: [playbook, qa]
-last_reviewed: 2026-06-30
+last_reviewed: 2026-07-13
 authors: [trilemma-foundation]
 ---
 
-These decision-making flowcharts and the resulting checklist aim to answer a single question "should we release?".
+These decision-making flowcharts and the resulting checklist aim to answer a single question: "Should we release?"
 
 Deploying large or small changes to production marks the end (of one iteration) of the SE Development/Data Analytics
-lifecycle. Ultimately, bringing value to users by making technology accessible is one of if not the main driver for
-iterating in the first place. Consequently, release decision making gates strongly inform the components that make up
+lifecycle. Ultimately, bringing value to users by making technology accessible is one of, if not the, main drivers for
+iterating in the first place. Consequently, release decision-making gates strongly inform the components that make up
 high-quality software and analytics pipelines operating in the wild, and in turn the types of tools used to achieve it.
 
 The aim here is to provide a comprehensive, generalized framework for any type of release - whether for a small or large
 project, new features or infrastructure upgrades, initial product launch or iterative updates. The highest-risk
-aspects of releases are the ones you don't think about; the checklist is your safety net to make sure you cover
-all aspects of putting software into the world at every iteration, and is organized into a tree shape for clarity
-and efficiency.
+aspects of releases are the ones you don't think about. The checklist is a safety net that helps you cover
+all aspects of putting software into the world at every iteration and is organized into a tree shape for clarity and
+efficiency.
 
 Below, you will find diagrams representing the release decision flow: chains of invariants and development lifecycle components or tools stemming from the primary release decision question.
 Of course, these do not come for free: Use such tools in a way that matches your needs and
 always make your own judgements about releasing. A node drawn with a dashed border is a
 branch of its own, expanded in a later diagram.
 
-Terms related to release are defined/expanded below the diagrams.
-Please refer to the glossary (TODO) for our precise definitions of any other terms used.
+Terms used in the diagrams are defined below.
 
 ## The Big Picture
 The top-level of the checklist breaks down into a few large categories that can be assessed more-or-less independently. These align with the distinction between "building the right thing", and "building the thing right".
 
 ```mermaid
 flowchart TB
+    accTitle: Release decision overview
+    accDescr: A release candidate should be deployed when timing, expected impacts, environmental compatibility, and system compatibility checks pass.
     classDef expanded stroke-dasharray: 5 5
     root["Deploy release candidate?"]
     root --> timeToRelease["Right time to release"]
@@ -47,6 +48,8 @@ This topic encompasses both the fit of the product with respect to the external 
 
 ```mermaid
 flowchart TB
+    accTitle: Release timing checklist
+    accDescr: Release timing depends on exposure readiness, infrastructure, market fit, release cadence, downtime planning, research, and rollback readiness.
     classDef rootNode fill:#553417,stroke:#ff993f,color:#ffd9ab
     classDef leafNode fill:#1e3a56,stroke:#6ca8e4,color:#cfe4f7
     timeToRelease["Right time to release"]
@@ -64,6 +67,8 @@ The biggest category, at least in depth, this discusses the actual changes being
 
 ```mermaid
 flowchart TB
+    accTitle: Release impact checklist
+    accDescr: Expected release impacts depend on deployment safety, deployed behavior, access and security controls, automated tests, specifications, stakeholder agreement, and rollback readiness.
     classDef rootNode fill:#553417,stroke:#ff993f,color:#ffd9ab
     classDef leafNode fill:#1e3a56,stroke:#6ca8e4,color:#cfe4f7
     expectedImpacts["Has the expected impacts"]
@@ -102,7 +107,7 @@ flowchart TB
 
 *Release Candidate*: (RC) A snapshot of source code (including static configuration files and deployment scripts) being evaluated for release. Usually a tagged commit.
 
-*Exposure*: Potential consequences of having the changes in the world. Includes cost from people using the software or legal implications.
+*Exposure*: Potential consequences of having the changes in the world. Includes costs from people using the software or legal implications.
 
 *Infra(structure)*: Other resources controlled by you that must be present for the code to work. Usually these are cloud resources such as AWS S3 buckets, message brokers.
 
@@ -112,30 +117,30 @@ flowchart TB
 running scripts to manipulate data where appropriate. Adding/modifying (or removing) a feature is considered an impact. Making a website exist on
 a domain that did not exist before is also an impact. So is fixing a bug.
 
-*Downtime*: Any time where previously available and/or expected functionality are not available (even if no users try to use it). Commonly this is a
-service outage where a server cannot be reached but there are other examples such as where a bug makes a feature inaccessible or not work properly.
+*Downtime*: Any time when previously available and/or expected functionality is not available (even if no users try to use it). Commonly, this is a
+service outage where a server cannot be reached, but other examples include bugs that make a feature inaccessible or prevent it from working properly.
 
 *Rollback*: Reverting deployed instances to the previous release candidate - effectively removing the effects of the release. This is typically done
 when a release immediately causes downtime once deployed and a previous release candidate is considered stable.
 
 *QA*: Testing done on **net-new** behaviours and other release impacts, whether by humans or by bots, mostly to glue together stakeholder expectations
-and actual developed results. QA can be done by a developer if they are the stakeholder. Although the terms is used quite broadly in the industry,
+and actual developed results. QA can be done by a developer if they are the stakeholder. Although the term is used quite broadly in the industry,
 for the purposes of this framework we exclude regression testing and other types of release checks. We instead deal with changes to existing behaviours
 in a separate branch of the tree.
 
-*Existing Behaviours*: Things the software does as of the last stable release. These are what users already or come to expect, and include behaviours
+*Existing Behaviours*: Things the software does as of the last stable release. These are what users already expect or come to expect, and include behaviours
 that may not be intended. Unintended behaviours should largely be avoided by following a structured design and specification process.
 
 *Feature Organization*: The team's system for defining what is a feature. Vertical slicing is one possible system. The idea is to have units of behaviour that can be individually tested and be turned on or off (see feature flags). It's important to have a model for this.
 
 *Model*: An external blueprint of the software, graphical or otherwise. It's common for the model to describe the *shape* of the software while not describing its *texture*. Software models are extremely useful for design, collaboration, testing, and even describing a system to builder agents
-(see more in the Design module). Event models are a strong example that highlight information flow.
+(see more in the Design module). Event models are a strong example that highlights information flow.
 
 *Expressive Tests*: Tests whose source code - or data, in the case of something like Gherkin/Cucumber - tell lots about what they do and, by extension, what the software does. These give confidence to stakeholders, serve as executable specifications, and prove to us why they even exist
 (not something that can be said for many tests that exist in industry codebases).
 
 *Strong Automation*: Test automation that ensures the test actually tests what it says, and gets deep enough that we get confidence even without
-actually using the software ourselves. One of the strongest automation is E2E tests using Playwright - since they test fully integrated flow - but
+actually using the software ourselves. One of the strongest forms of automation is E2E testing using Playwright - since it tests fully integrated flows - but
 of course those are relatively expensive and are not the only type of strong automation. Getting this right relies on good technology and infrastructure
 that effectively separates business logic from wiring.
 
