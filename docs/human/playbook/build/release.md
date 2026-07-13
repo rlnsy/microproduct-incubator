@@ -20,11 +20,7 @@ aspects of releases are the ones you don't think about; the checklist is your sa
 all aspects of putting software into the world at every iteration, and is organized into a tree shape for clarity
 and efficiency.
 
-The following diagrams show the release decision flow: a big-picture view of the root-level
-question, followed by one diagram for each of its major branches so each stays readable at
-full size. You will find the root-level question linking down to
-pre-requisite questions or checklist items. The leaf nodes represent tools or other components
-of the development process or tech stack that are best suited for covering the relevant item.
+Below, you will find diagrams representing the release decision flow: chains of invariants and development lifecycle components or tools stemming from the primary release decision question.
 Of course, these do not come for free: Use such tools in a way that matches your needs and
 always make your own judgements about releasing. A node drawn with a dashed border is a
 branch of its own, expanded in a later diagram.
@@ -33,7 +29,7 @@ Terms related to release are defined/expanded below the diagrams.
 Please refer to the glossary (TODO) for our precise definitions of any other terms used.
 
 ## The Big Picture
-
+The top-level of the checklist breaks down into a few large categories that can be assessed more-or-less indepedently. These align with the distinction between "building the right thing", and "building the thing right".
 ```mermaid
 flowchart TB
     classDef expanded stroke-dasharray: 5 5
@@ -46,7 +42,7 @@ flowchart TB
 ```
 
 ## Timing
-
+This topic encompasses both the fit of the product with respect to the external world, as well as internal preparedness.
 ```mermaid
 flowchart TB
     classDef rootNode fill:#553417,stroke:#ff993f,color:#ffd9ab
@@ -62,6 +58,7 @@ flowchart TB
 ```
 
 ## Impacts
+The biggest category, at least in depth, this discusses the actual changes being realized as a result of doing a release.
 
 ```mermaid
 flowchart TB
