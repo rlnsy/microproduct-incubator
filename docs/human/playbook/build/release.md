@@ -30,6 +30,7 @@ Please refer to the glossary (TODO) for our precise definitions of any other ter
 
 ## The Big Picture
 The top-level of the checklist breaks down into a few large categories that can be assessed more-or-less independently. These align with the distinction between "building the right thing", and "building the thing right".
+
 ```mermaid
 flowchart TB
     classDef expanded stroke-dasharray: 5 5
@@ -43,6 +44,7 @@ flowchart TB
 
 ## Timing
 This topic encompasses both the fit of the product with respect to the external world, as well as internal preparedness.
+
 ```mermaid
 flowchart TB
     classDef rootNode fill:#553417,stroke:#ff993f,color:#ffd9ab
