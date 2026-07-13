@@ -29,7 +29,7 @@ Terms related to release are defined/expanded below the diagrams.
 Please refer to the glossary (TODO) for our precise definitions of any other terms used.
 
 ## The Big Picture
-The top-level of the checklist breaks down into a few large categories that can be assessed more-or-less indepedently. These align with the distinction between "building the right thing", and "building the thing right".
+The top-level of the checklist breaks down into a few large categories that can be assessed more-or-less independently. These align with the distinction between "building the right thing", and "building the thing right".
 ```mermaid
 flowchart TB
     classDef expanded stroke-dasharray: 5 5
